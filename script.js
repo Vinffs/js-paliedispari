@@ -65,4 +65,64 @@ function isItPalindrome() {
   }
 }
 
+// Exercise 2 - Even or Odd?
 
+isEvenOrOdd();
+function isEvenOrOdd() {
+  const button = document.getElementById('buttonSecond');
+  const playerEven = document.getElementById('vbtn-radio1');
+  const playerOdd = document.getElementById('vbtn-radio2');
+  const allowedNumbers = [1, 2, 3, 4, 5];
+  const computerNumber = getRndInteger(1, 5);
+  const result = document.querySelector('.second-alert');
+  let sum;
+
+  button.addEventListener('click', function () {
+    const input = parseInt(document.getElementById('dataTwo').value);
+    sum = (input + computerNumber);
+
+    let isIncluded = false;
+    for (let i = 0; i < allowedNumbers.length; i++) {
+      if (input === allowedNumbers[i]) {
+        isIncluded = true;
+      } else { }
+    }
+
+    whoWins(playerEven, playerOdd, isIncluded, sum);
+  })
+
+  function whoWins(playerEven, playerOdd, isIncluded, sum) {
+    resetToDefault();
+
+    if (!playerEven.checked && !playerOdd.checked) {
+      background = `bg-danger`
+      displayText = `You must chose Even or Odd.`
+
+    } else if (!isIncluded) {
+      background = `bg-warning`
+      displayText = `The inserted number is not valid, please check.`
+
+    } else if ((sum % 2 === 0 && playerEven.checked) || (sum % 2 > 0 && playerOdd.checked)) {
+      background = `bg-success`;
+      displayText = `You Win!`;
+
+    } else if ((sum % 2 === 0 && playerOdd.checked) || (sum % 2 > 0 && playerEven.checked)) {
+      background = `bg-info`;
+      displayText = `Computer Wins :( Try again!`
+    }
+
+    displayResults(background, displayText);
+  }
+
+  function displayResults(background, displayText) {
+    result.classList.remove('d-none');
+    result.innerHTML = `${displayText}`;
+    result.classList.add(background, 'text-white', 'fs-4', 'p-2');
+  }
+
+  function resetToDefault() {
+    result.classList.add('d-none');
+    result.classList.remove('bg-danger', 'bg-success', 'bg-warning', 'bg-info');
+  }
+
+}

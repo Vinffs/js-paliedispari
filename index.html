@@ -25,6 +25,7 @@
     <!-- title -->
     <h1>Exercises</h1>
 
+    <!-- exercise 1 -->
     <div class="text-start">
       <h2 class="pt-5">Palindrome</h2>
 
@@ -39,13 +40,39 @@
 
       <!-- container that gives result of the exercise-->
       <div class="alert d-none"></div>
+
+      <!-- exercise 2 -->
+      <div class="text-start">
+        <h2 class="pt-5">Even or Odd?</h2>
+
+        <!-- input slot -->
+        <div>
+          <div class="btn-group-lg" role="group" aria-label="Vertical radio toggle button group">
+            <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off">
+            <label class="btn btn-outline-success" for="vbtn-radio1">Even</label>
+            <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+            <label class="btn btn-outline-danger" for="vbtn-radio2">Odd</label>
+          </div>
+          <label for="data">
+            <h4 class="my-2">Insert a number between 1 and 5:</h4>
+          </label>
+          <div>
+            <input type="text" id="dataTwo" nome="data" class="w-25">
+          </div>
+        </div>
+
+        <!-- button -->
+        <button class="m-4" id="buttonSecond">Enter</button>
+
+        <!-- container that gives result of the exercise-->
+        <div class="second-alert d-none"></div>
+      </div>
+
     </div>
 
-  </div>
-
-  <!-- JS -->
-  <script src="utility.js"></script>
-  <script src="script.js"></script>
+    <!-- JS -->
+    <script src="utility.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
